@@ -3,43 +3,67 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MyPocketTracker</title>
+<title>Long-Term Budget Dashboard</title>
 <link rel="stylesheet" href="nav.css">
-<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site-header">
   <a class="brand" href="index.html">MyPocketTracker</a>
   <nav>
-    <a class="active" href="index.html">Home</a>
-    <a href="budget.html">Budget</a>
+    <a href="index.html">Home</a>
+    <a class="active" href="budget.html">Budget</a>
     <a href="budget.html#stats">Stats</a>
     <a href="budget.html#analysis">Analysis</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
 </header>
+<main>
+  <h1>Long-Term Budget Dashboard</h1>
+  <p class="sub">Adjust the assumptions to see how your income, spending and savings could grow over the years.</p>
 
-<section class="hero" id="home">
-  <h1>Hello <span id="name">Brokkie</span></h1>
-  <p>Glad you’re here. Take a look around!</p>
-  <input type="text" id="nameInput" placeholder="Type your name" autocomplete="off">
-  <a class="btn" href="budget.html">Open Budget Dashboard</a>
-</section>
+  <a id="stats"></a>
+  <div class="grid kpis" id="kpis"></div>
 
-<section class="quick" id="quick">
-  <h2>Quick access</h2>
-  <div class="cards">
-    <a href="budget.html"><b>Budget Dashboard</b><span>Project your income, spending and savings.</span></a>
-    <a href="budget.html#stats"><b>Stats</b><span>Balance, surplus and savings rate at a glance.</span></a>
-    <a href="budget.html#analysis"><b>Analysis</b><span>Savings chart and spending breakdown.</span></a>
+  <div class="grid layout">
+    <section class="card" aria-label="Assumptions">
+      <h2>Assumptions</h2>
+      <label>Years to project <b id="yv">20</b></label>
+      <input type="range" id="years" min="5" max="40" value="20">
+      <div class="sec">Income &amp; growth</div>
+      <label>Monthly income <input type="number" id="income" value="4500" min="0"></label>
+      <label>Income growth %/yr <input type="number" id="ig" value="3" step="0.1"></label>
+      <label>Starting savings <input type="number" id="start" value="5000" min="0"></label>
+      <label>Investment return %/yr <input type="number" id="ret" value="6" step="0.1"></label>
+      <label>Inflation %/yr <input type="number" id="inf" value="2.5" step="0.1"></label>
+      <div class="sec">Monthly expenses</div>
+      <label>Housing <input type="number" id="e0" value="1400" min="0"></label>
+      <label>Food <input type="number" id="e1" value="550" min="0"></label>
+      <label>Transport <input type="number" id="e2" value="300" min="0"></label>
+      <label>Utilities &amp; bills <input type="number" id="e3" value="250" min="0"></label>
+      <label>Lifestyle <input type="number" id="e4" value="600" min="0"></label>
+      <label>Debt payments <input type="number" id="e5" value="300" min="0"></label>
+    </section>
+
+    <div class="stack">
+      <section class="card" id="analysis">
+        <h2>Savings projection</h2>
+        <div class="legend"><span><i style="background:var(--c1)"></i>Nominal balance</span><span><i style="background:var(--c2)"></i>Inflation-adjusted (today’s money)</span></div>
+        <div id="chart"></div>
+      </section>
+      <section class="card">
+        <h2>Where the money goes (year 1)</h2>
+        <div class="bar" id="bar"></div>
+        <div id="split"></div>
+      </section>
+      <section class="card">
+        <h2>Year-by-year</h2>
+        <div class="scroll"><table id="tbl"></table></div>
+      </section>
+    </div>
   </div>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Contact</h2>
-  <p>Add your email or social links here.</p>
-</section>
-
-<script src="home.js"></script>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
+
