@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MyPocketTracker</title>
+<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html">MyPocketTracker</a>
+  <nav>
+    <a class="active" href="index.html">Home</a>
+    <a href="budget.html">Budget</a>
+    <a href="budget.html#stats">Stats</a>
+    <a href="budget.html#analysis">Analysis</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Hello <span id="name">Brokkie</span></h1>
+  <p>Glad you’re here. Take a look around!</p>
+  <input type="text" id="nameInput" placeholder="Type your name" autocomplete="off">
+  <a class="btn" href="budget.html">Open Budget Dashboard</a>
+</section>
+
+<section class="quick" id="quick">
+  <h2>Quick access</h2>
+  <div class="cards">
+    <a href="budget.html"><b>Budget Dashboard</b><span>Project your income, spending and savings.</span></a>
+    <a href="budget.html#stats"><b>Stats</b><span>Balance, surplus and savings rate at a glance.</span></a>
+    <a href="budget.html#analysis"><b>Analysis</b><span>Savings chart and spending breakdown.</span></a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <p>Add your email or social links here.</p>
+</section>
+
+<script src="home.js"></script>
+</body>
+</html>
